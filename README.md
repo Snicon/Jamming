@@ -34,7 +34,9 @@ A portfolio project from CodeCademy. React + Vite + TailwindCSS + Spotify API.
 ## Work / Progress:
 - [x] Setup local environment
 - [x] Setup version control
-- [ ] Create static components
+- [ ] Static components
+  - [x] Create static components
+  - [ ] JSX + Styling
 - [ ] Implement track listing in the component tree
 - [ ] Implement playlists in the component tree
 - [ ] Implement adding songs to a custom playlist
