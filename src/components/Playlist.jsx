@@ -1,7 +1,7 @@
 import React from "react";
 import Track from "./Track";
 
-const PlayList = () => {
+const PlayList = (props) => {
     return (
         <>
             <div className="flex flex-col md:w-1/2">
@@ -9,8 +9,7 @@ const PlayList = () => {
                     <input className="w-full text-2xl font-bold bg-transparent border-black placeholder:text-black/60" placeholder="Playlist name..." />
                 </div>
                 <div className="flex flex-col px-6 py-4 space-y-4 bg-yellow-300">
-                    <Track song="Upp" artist="Den svenska björnstammen" />
-                    <Track song="fields" artist="soap." />
+                    { props.playlist.songs.map(song => <Track song={song.song} artist={song.artist} album={song.album} />) }
                 </div>
                 <div className="flex flex-col px-6 py-4 space-y-4 bg-yellow-300 rounded-b-xl">
                     <button className="py-4 bg-purple-400 rounded-lg transition duration-300 hover:bg-purple-500">Save to Spotify</button>
