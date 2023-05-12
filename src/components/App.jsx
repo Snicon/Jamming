@@ -4,8 +4,8 @@ import SearchBar from './SearchBar';
 import SearchResults from './SearchResults';
 import PlayList from './Playlist';
 // DEBUG: import results from "../mock/results";
-import playlist from "../mock/playlist";
-import Spotify from "../api/spotify";
+// DEBUG: import playlist from "../mock/playlist";
+import Spotify from "../api/Spotify";
 
 function App() {
 
@@ -35,11 +35,20 @@ function App() {
   const updatePlaylistName = useCallback((newName) => {
     setPlaylistName(newName);
     // DEBUG: console.log(newName);
+    console.log(playlistTracks)
   }, []);
 
   const search = useCallback((searchTerm) => {
     Spotify.search(searchTerm).then(setSerachResults);
   }, []);
+
+  const createPlaylist = useCallback(() => {
+    const trackUris = playlistTracks.map((track) => track.uri);
+    Spotify.createPlaylist(playlistName, trackUris).then(() => {
+      setPlaylistName("New Playlist");
+      setPlaylistTracks([]);
+    });
+  }, [playlistName, playlistTracks]);
 
   return (
     <>
@@ -48,7 +57,7 @@ function App() {
         <SearchBar onSearch={search} />
         <div className='flex flex-col justify-between space-y-12 md:space-y-0 md:space-x-48 md:flex-row'>
           <SearchResults results={serachResults} onAdd={addTrack} add={true} />
-          <PlayList playlistName={playlistName} onNameChange={updatePlaylistName} playlist={playlist} playlistTracks={playlistTracks} onRemove={removeTrack} add={false} />
+          <PlayList onCreatePlaylist={createPlaylist} playlistName={playlistName} onNameChange={updatePlaylistName} playlistTracks={playlistTracks} onRemove={removeTrack} add={false} />
         </div>
        </div>
     </>

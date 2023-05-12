@@ -43,9 +43,8 @@ A portfolio project from CodeCademy. React + Vite + TailwindCSS + HeroIcons + Sp
 - [x] Implement adding songs to a custom playlist
 - [x] Implement removing songs from a custom playlist
 - [x] Implement playlist renaming
-- [ ] Implement saving the playlist to a users account
 - [x] Obtain a Spotify Access Token
 - [x] Implement Spotify search request
-- [ ] Save a users playlist
+- [x] Implement saving the playlist to a users account
 - [ ] Testing and debugging
 - [ ] Review project

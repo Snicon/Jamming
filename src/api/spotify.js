@@ -1,6 +1,6 @@
 // TODO: Setup .env
 const clientId = '';
-const redirectUri = 'http://localhost:5174/callback';
+const redirectUri = 'http://localhost:5174/';
 
 let accessToken;
 
@@ -43,7 +43,35 @@ const Spotify = {
                 uri: track.uri
             }));
         });
+    },
+
+    createPlaylist(playlistName, trackUris) {
+        if (!playlistName || !trackUris.length)
+            return;
+        
+        const accessToken = this.getAccessToken();
+        const headers = { Authorization: "Bearer " + accessToken };
+        let userId;
+
+        return fetch('https://api.spotify.com/v1/me', { headers: headers}
+        ).then(response => response.json()
+        ).then(jsonResponse => {
+            userId = jsonResponse.id;
+            return fetch(`https://api.spotify.com/v1/users/${userId}/playlists`, {
+                headers: headers,
+                method: 'POST',
+                body: JSON.stringify({name: playlistName})
+            }).then(response => response.json()
+            ).then(jsonResponse => {
+                const playlistId = jsonResponse.id;
+                return fetch(`https://api.spotify.com/v1/users/${userId}/playlists/${playlistId}/tracks`, {
+                    headers: headers,
+                    method: 'POST',
+                    body: JSON.stringify({uris: trackUris})
+                });
+            });
+        });
     }
-}
+};
 
 export default Spotify;

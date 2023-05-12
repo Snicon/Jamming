@@ -18,7 +18,7 @@ const PlayList = (props) => {
                 </div>
                 <TrackList tracks={props.playlistTracks} onRemove={props.onRemove} add={props.add} />
                 <div className="flex flex-col px-6 py-4 space-y-4 bg-yellow-300 rounded-b-xl">
-                    <button className="py-4 bg-purple-400 rounded-lg transition duration-300 hover:bg-purple-500">Save to Spotify</button>
+                    <button onClick={props.onCreatePlaylist} className="py-4 bg-purple-400 rounded-lg transition duration-300 hover:bg-purple-500">Save to Spotify</button>
                 </div>
             </div>
         </>
