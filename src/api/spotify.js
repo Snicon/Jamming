@@ -1,5 +1,5 @@
 // TODO: Setup .env
-const clientId = '';
+const clientId = import.meta.env.VITE_SPOTIFY_CLIENT_ID;
 const redirectUri = 'http://localhost:5174/';
 
 let accessToken;
