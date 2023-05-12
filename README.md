@@ -48,3 +48,24 @@ A portfolio project from CodeCademy. React + Vite + TailwindCSS + HeroIcons + Sp
 - [x] Implement saving the playlist to a users account
 - [x] Testing and debugging
 - [x] Review project
+
+# How to run
+
+## Development environment
+1. Clone the repository
+2. 
+```zsh
+npm install
+```
+3. 
+```zsh
+cp .env.example .env
+```
+4. Fill in the two mandatory environment variables. (These details can be found in your https://developer.spotify.com app.)
+5. 
+```zsh
+npm run dev
+```
+
+## Production environment
+This project is not meant to be ran in production.
