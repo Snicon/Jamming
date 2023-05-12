@@ -14,7 +14,7 @@ const PlayList = (props) => {
         <>
             <div className="flex flex-col md:w-1/2">
                 <div className="px-6 py-4 bg-yellow-400 rounded-t-xl border-b-2 border-b-black">
-                    <input onChange={onNameChange} className="w-full text-2xl font-bold bg-transparent border-black placeholder:text-black/60" placeholder="Playlist name..." />
+                    <input value={props.playlistName} onChange={onNameChange} className="w-full text-2xl font-bold bg-transparent border-black placeholder:text-black/60" placeholder="Playlist name..." />
                 </div>
                 <TrackList tracks={props.playlistTracks} onRemove={props.onRemove} add={props.add} />
                 <div className="flex flex-col px-6 py-4 space-y-4 bg-yellow-300 rounded-b-xl">

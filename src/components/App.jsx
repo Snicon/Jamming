@@ -43,7 +43,7 @@ function App() {
         <SearchBar />
         <div className='flex flex-col justify-between space-y-12 md:space-y-0 md:space-x-48 md:flex-row'>
           <SearchResults searchResults={serachResults} results={results} onAdd={addTrack} add={true} />
-          <PlayList onNameChange={updatePlaylistName} playlist={playlist} playlistTracks={playlistTracks} onRemove={removeTrack} add={false} />
+          <PlayList playlistName={playlistName} onNameChange={updatePlaylistName} playlist={playlist} playlistTracks={playlistTracks} onRemove={removeTrack} add={false} />
         </div>
        </div>
     </>
