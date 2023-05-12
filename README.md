@@ -1,4 +1,4 @@
-# Jamming (IN DEVELOPMENT)
+# Jamming
 A portfolio project from CodeCademy. React + Vite + TailwindCSS + HeroIcons + Spotify API.
 
 ## Project Requirements
@@ -46,5 +46,5 @@ A portfolio project from CodeCademy. React + Vite + TailwindCSS + HeroIcons + Sp
 - [x] Obtain a Spotify Access Token
 - [x] Implement Spotify search request
 - [x] Implement saving the playlist to a users account
-- [ ] Testing and debugging
-- [ ] Review project
+- [x] Testing and debugging
+- [x] Review project
