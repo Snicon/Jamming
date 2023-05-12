@@ -15,7 +15,7 @@ function App() {
   const addTrack = useCallback(
     (track) => {
       // make sure the track isn't already added to the playlist, we don't want duplicates
-      console.log(playlistTracks);
+      // DEBUG: console.log(playlistTracks);
       if(playlistTracks.some((savedTrack) => savedTrack.id === track.id))
         return;
 
@@ -25,6 +25,12 @@ function App() {
     [playlistTracks]
   );
 
+  const removeTrack = useCallback((track) => {
+    setPlaylistTracks((previousTracks) => 
+      previousTracks.filter((savedTrack) => savedTrack.id !== track.id)
+    );
+  }, []);
+
   return (
     <>
       <Header />
@@ -32,7 +38,7 @@ function App() {
         <SearchBar />
         <div className='flex flex-col justify-between space-y-12 md:space-y-0 md:space-x-48 md:flex-row'>
           <SearchResults searchResults={serachResults} results={results} onAdd={addTrack} add={true} />
-          <PlayList playlist={playlist} playlistTracks={playlistTracks} add={false} />
+          <PlayList playlist={playlist} playlistTracks={playlistTracks} onRemove={removeTrack} add={false} />
         </div>
        </div>
     </>
