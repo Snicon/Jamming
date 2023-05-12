@@ -45,7 +45,7 @@ A portfolio project from CodeCademy. React + Vite + TailwindCSS + HeroIcons + Sp
 - [x] Implement playlist renaming
 - [ ] Implement saving the playlist to a users account
 - [x] Obtain a Spotify Access Token
-- [ ] Implement Spotify search request
+- [x] Implement Spotify search request
 - [ ] Save a users playlist
 - [ ] Testing and debugging
 - [ ] Review project
