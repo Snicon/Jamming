@@ -1,5 +1,5 @@
 # Jamming (IN DEVELOPMENT)
-A portfolio project from CodeCademy. React + Vite + TailwindCSS + Spotify API.
+A portfolio project from CodeCademy. React + Vite + TailwindCSS + HeroIcons + Spotify API.
 
 ## Project Requirements
 
@@ -22,6 +22,7 @@ A portfolio project from CodeCademy. React + Vite + TailwindCSS + Spotify API.
 - Vite
 - React
 - TailwindCSS
+- HeroIcons
 - Spotify API
 
 ## Features:
