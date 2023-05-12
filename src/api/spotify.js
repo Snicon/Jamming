@@ -1,20 +1,8 @@
 // TODO: Setup .env
 const clientId = '';
-const redirectUri = 'https://localhost:5174/';
+const redirectUri = 'http://localhost:5174/callback';
 
 let accessToken;
-
-var state = generateRandomString(16);
-
-localStorage.setItem(stateKey, state);
-var scope = 'user-read-private user-read-email';
-
-var url = 'https://accounts.spotify.com/authorize';
-url += '?response_type=token';
-url += '&client_id=' + encodeURIComponent(clientId);
-url += '&scope=' + encodeURIComponent(scope);
-url += '&redirect_uri=' + encodeURIComponent(redirectUri);
-url += '&state=' + encodeURIComponent(state);
 
 const Spotify = {
     getAccessToken() {
@@ -34,4 +22,28 @@ const Spotify = {
             window.location = accessUrl;
         }
     },
+
+    search(searchTerm) {
+        const accessToken = this.getAccessToken();
+        return fetch('https://api.spotify.com/v1/search?type=track&q=' + searchTerm, {
+            headers: {
+                Authorization: "Bearer " + accessToken
+            }
+        }).then(response => {
+            return response.json();
+        }).then(jsonResponse => {
+            if(!jsonResponse.tracks)
+                return [];
+            
+            return jsonResponse.tracks.items.map(track => ({
+                id: track.id,
+                name: track.name,
+                artist: track.artists[0].name,
+                album: track.album.name,
+                uri: track.uri
+            }));
+        });
+    }
 }
+
+export default Spotify;

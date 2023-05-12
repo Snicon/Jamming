@@ -19,7 +19,7 @@ const Track = (props) => {
     return (
         <div className="flex justify-between items-center">
             <div>
-                <h3 className="flex flex-col -space-y-1 text-xl font-semibold"><span>{props.song}</span> <span className="text-xs font-normal">{props.album}</span></h3>
+                <h3 className="flex flex-col -space-y-1 text-xl font-semibold"><span>{props.track.name}</span> <span className="text-xs font-normal">{props.album}</span></h3>
                 <p className="text-lg">{props.artist}</p>
             </div>
             <button onClick={ props.add ? addTrack : removeTrack }>

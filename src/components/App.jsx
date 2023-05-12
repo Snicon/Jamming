@@ -3,8 +3,9 @@ import Header from './Header';
 import SearchBar from './SearchBar';
 import SearchResults from './SearchResults';
 import PlayList from './Playlist';
-import results from "../mock/results";
+// DEBUG: import results from "../mock/results";
 import playlist from "../mock/playlist";
+import Spotify from "../api/spotify";
 
 function App() {
 
@@ -36,13 +37,17 @@ function App() {
     // DEBUG: console.log(newName);
   }, []);
 
+  const search = useCallback((searchTerm) => {
+    Spotify.search(searchTerm).then(setSerachResults);
+  }, []);
+
   return (
     <>
       <Header />
       <div className='mx-auto max-w-7xl'>
-        <SearchBar />
+        <SearchBar onSearch={search} />
         <div className='flex flex-col justify-between space-y-12 md:space-y-0 md:space-x-48 md:flex-row'>
-          <SearchResults searchResults={serachResults} results={results} onAdd={addTrack} add={true} />
+          <SearchResults results={serachResults} onAdd={addTrack} add={true} />
           <PlayList playlistName={playlistName} onNameChange={updatePlaylistName} playlist={playlist} playlistTracks={playlistTracks} onRemove={removeTrack} add={false} />
         </div>
        </div>
